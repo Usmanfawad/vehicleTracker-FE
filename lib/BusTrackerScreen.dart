@@ -91,21 +91,6 @@ class _BusTrackerScreenState extends State<BusTrackerScreen> {
                             );
                           },
                         ),
-                        // child: Stack(
-                        //   children: [
-                        //     const Positioned(
-                        //       left: 32,
-                        //       top: 40,
-                        //       child: SizedBox(
-                        //         height: 450,
-                        //         width: 5,
-                        //         child: ColoredBox(
-                        //             color: const Color.fromARGB(255, 163, 186, 198)),
-                        //       ),
-                        //     ),
-
-                        //   ],
-                        // ),
                       ),
               ]))
             ],

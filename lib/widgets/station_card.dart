@@ -157,8 +157,7 @@ class _StationCardState extends State<StationCard> {
                                     ),
                                     //first bus time
                                     child: Text(
-                                      formatTime(widget.busData['data'][0]
-                                          ['distances'][widget.index]['in_s']),
+                                      formatTime(0),
                                       style: TextStyle(
                                         fontSize: 13,
                                         color: widget.isIdle
@@ -196,9 +195,7 @@ class _StationCardState extends State<StationCard> {
                                           ),
                                           //second bus time
                                           child: Text(
-                                            formatTime(widget.busData['data'][1]
-                                                    ['distances'][widget.index]
-                                                ['in_s']),
+                                            formatTime(1),
                                             style: TextStyle(
                                               fontSize: 13,
                                               color: widget.isIdle2
@@ -258,10 +255,14 @@ class _StationCardState extends State<StationCard> {
     return Colors.blueGrey.shade400;
   }
 
-  String formatTime(int secondsOffset) {
+  String formatTime(int busIndex) {
     DateTime now = DateTime.now();
-
-    DateTime newTime = now.add(Duration(seconds: secondsOffset));
+    int totalSeconds = 0;
+    for (int i = 0; i <= widget.index; i++) {
+      totalSeconds +=
+          widget.busData['data'][busIndex]['distances'][i]['in_s'] as int;
+    }
+    DateTime newTime = now.add(Duration(seconds: totalSeconds));
     String formattedTime =
         '${newTime.hour.toString().padLeft(2, '0')}:${newTime.minute.toString().padLeft(2, '0')}';
 
