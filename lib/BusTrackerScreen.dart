@@ -39,7 +39,7 @@ class _BusTrackerScreenState extends State<BusTrackerScreen> {
     BusService call = BusService();
     _apiData = await call.fetchDataFromApi();
     stationNames = await call.fetchStationNames();
-   
+
     setState(() {
       _isLoading = false;
       busData.setData(_apiData, stationNames);
@@ -48,9 +48,6 @@ class _BusTrackerScreenState extends State<BusTrackerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String imageUrl =
-        'https://firebasestorage.googleapis.com/v0/b/the-chat-app-363a8.appspot.com/o/download.jpg?alt=media&token=422dbc5e-4481-428c-aac1-df0284343241';
-
     return Scaffold(
         backgroundColor: Colors.grey[300],
         body: Padding(
@@ -82,7 +79,7 @@ class _BusTrackerScreenState extends State<BusTrackerScreen> {
                           itemBuilder: (context, i) {
                             return StationCard(
                               index: i,
-                              imageUrl: imageUrl,
+                              imageUrl: imageUrl[i],
                               busData: _apiData,
                               isIdle: busData.isIdle,
                               isIdle2: busData.isIdle2,
@@ -98,3 +95,13 @@ class _BusTrackerScreenState extends State<BusTrackerScreen> {
         ));
   }
 }
+
+final List<String> imageUrl = [
+  'assets/Meeranerplatz.jpeg',
+  'assets/Teichstrasse.png',
+  'assets/Tumringerstr.png',
+  'assets/Bauhaus.jpeg',
+  'assets/Beim Haagensteeg.jpg',
+  'assets/Schwarzwaldstrasse.jpeg',
+  'assets/Am Hebelpark.jpg',
+];

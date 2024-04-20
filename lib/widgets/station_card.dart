@@ -107,7 +107,7 @@ class _StationCardState extends State<StationCard> {
                         padding: const EdgeInsets.all(6.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
+                          child: Image.asset(
                             widget.imageUrl,
                             fit: BoxFit.fill,
                             width: 70,
