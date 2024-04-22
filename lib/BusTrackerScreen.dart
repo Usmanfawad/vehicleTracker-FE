@@ -79,7 +79,6 @@ class _BusTrackerScreenState extends State<BusTrackerScreen> {
                           itemBuilder: (context, i) {
                             return StationCard(
                               index: i,
-                              imageUrl: imageUrl[i],
                               busData: _apiData,
                               isIdle: busData.isIdle,
                               isIdle2: busData.isIdle2,
@@ -95,13 +94,3 @@ class _BusTrackerScreenState extends State<BusTrackerScreen> {
         ));
   }
 }
-
-final List<String> imageUrl = [
-  'assets/Meeranerplatz.jpeg',
-  'assets/Teichstrasse.png',
-  'assets/Tumringerstr.png',
-  'assets/Bauhaus.jpeg',
-  'assets/Beim Haagensteeg.jpg',
-  'assets/Schwarzwaldstrasse.jpeg',
-  'assets/Am Hebelpark.jpg',
-];

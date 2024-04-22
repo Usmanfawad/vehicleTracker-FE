@@ -6,16 +6,15 @@ class StationCard extends StatefulWidget {
   const StationCard({
     super.key,
     required this.index,
-    required this.imageUrl,
+ 
     required this.busData,
     required this.isIdle,
     required this.isIdle2,
     required this.noOfBus,
     required this.stationNames,
   });
-  //you can change the images through the imageUrl parameter in the constructor of the widget
   final int index;
-  final String imageUrl;
+ 
   final Map<String, dynamic> busData;
   final Map<String, dynamic> stationNames;
   final bool isIdle;
@@ -107,8 +106,10 @@ class _StationCardState extends State<StationCard> {
                         padding: const EdgeInsets.all(6.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
-                          child: Image.asset(
-                            widget.imageUrl,
+                          child: Image.network(
+                            widget.busData['data'][0]['bus_images']['images']
+                                .values
+                                .elementAt(widget.index),
                             fit: BoxFit.fill,
                             width: 70,
                             height: 70,
